@@ -2,7 +2,7 @@
 Author: Ivan  Diaz (Based on Udacity DE Nanodegree template
 This module calls the jobs to extract, transform and lod the Sparkfy
 logs and songs data to the created database
-To be directly called from the terminal, required the sql_queries module
+To be directly called from the terminal, requires the sql_queries module
 '''
 
 import os
