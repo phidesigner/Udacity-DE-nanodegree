@@ -25,7 +25,7 @@ The chart below displays this structure:
 ![alt text](https://github.com/phidesigner/DE_nanodegree/blob/master/Project%201/Pics/ERD.png)
 
 ## Data sources and files
-For the purpose of this exercise this repo only contains information related to the ETL and Postgres processes. Namely:
+For the purpose of this exercise, the repo only contains information related to the ETL and Postgres processes. Information about the data sources can be found here [Song Dataset](http://millionsongdataset.com/) and here [Log Dataset](https://github.com/Interana/eventsim), Namely:
 
 - **sql_queries.py:** defines the schema of the five tables and the corresponding SQL queries
 - **create_tables.py:** triggers the creation of the Database and the five afore mentioned tables
@@ -33,7 +33,7 @@ For the purpose of this exercise this repo only contains information related to 
 - **etl.ipynb:** given instructions notebook to develop the ETL pipeline
 - **test.ipynb:** given notebook to test the sql queries and ETL outcome
 
-#### Song Dataset
+
 
 #### Songplays table
 ![alt text](https://github.com/phidesigner/DE_nanodegree/blob/master/Project%201/Pics/songplays.png)
