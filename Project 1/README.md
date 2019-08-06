@@ -34,15 +34,18 @@ For the purpose of this exercise, the repo only contains information related to 
 - **etl.ipynb:** given instructions notebook to develop the ETL pipeline
 - **test.ipynb:** given notebook to test the sql queries and ETL outcome
 
-## Requirements
-Python libraries
-    pandas
-    psycopg2
-    sql_queries
+## Python libraries required
+- os
+- glob
+- pandas
+- psycopg2
+- sql_queries
  
- ## Running the jobs
+## Running the jobs
+'''
 $ python create_tables.py
 $ python etl.py
+'''
 
 #### Songplays table
 ![alt text](https://github.com/phidesigner/DE_nanodegree/blob/master/Project%201/Pics/songplays.png)
