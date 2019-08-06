@@ -46,7 +46,7 @@ For the purpose of this exercise, the repo only contains information related to 
 $ python create_tables.py
 $ python etl.py
 ```
-
+## Tables and query examples
 #### Songplays table
 ![alt text](https://github.com/phidesigner/DE_nanodegree/blob/master/Project%201/Pics/songplays.png)
 
