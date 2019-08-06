@@ -1,3 +1,10 @@
+'''
+Author: Ivan  Diaz (Based on Udacity DE Nanodegree template
+This module calls the jobs to extract, transform and lod the Sparkfy
+logs and songs data to the created database
+To be directly called from the terminal, required the sql_queries module
+'''
+
 import os
 import glob
 import psycopg2
@@ -6,6 +13,11 @@ from sql_queries import *
 
 
 def process_song_file(cur, filepath):
+    """
+    Perform ETL on the dataset: song_data, to create the songs and artists dimensional tables
+    :param cur: Cursor object
+    :param filepath: Data source location from process_data function
+    """
     # open song file
     df = pd.read_json(filepath, lines=True)
 
@@ -33,6 +45,12 @@ def process_song_file(cur, filepath):
 
 
 def process_log_file(cur, filepath):
+    """
+    Perform ETL on the dataset: log_data, to create time, user and songplays tables
+    :param cur: Cursor object
+    :param filepath: Data source location from process_data function
+    """
+
     # open log file
     df = pd.read_json(filepath, lines=True)
 
@@ -94,6 +112,15 @@ def process_log_file(cur, filepath):
 
 
 def process_data(cur, conn, filepath, func):
+    """
+    Iterates over files from the song_data and log_data sources and process the
+    previously defined functions process_song_file and process_log_file
+    :param cur: Cursor object
+    :param conn: Connection
+    :param filepath: Data source location songs or logs
+    :param func: Process applied for songs or logs data
+    """
+
     # get all files matching extension from directory
     all_files = []
     for root, dirs, files in os.walk(filepath):
