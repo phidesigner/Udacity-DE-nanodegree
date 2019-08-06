@@ -6,7 +6,13 @@ A startup called Sparkify wants to analyze the data they've been collecting on s
 ## Purpose
 This project aims at creating a Postgres database with tables designed to optimize queries on song play analysis, as well as the ETL pipeline for future analysis.
 
-For this a predifined ETL process is executed and star schema is chosen as the more flexible and convenient approach to the analytical requirements. The fact table is defined as the songplay list and four dimension tables are created with information about:
+For this a predifined ETL process is executed and star schema is chosen as the more flexible and convenient approach to the analytical requirements e.g.
+
+- Denormalized tables for the specific queries
+- Faster aggregation
+- Flexible and adaptable schema for future analys
+
+The fact table is defined as the songplay list and four dimension tables are created with information about:
 
 - Time
 - User
@@ -17,6 +23,17 @@ The chart below displays this structure:
 
 #### Database Schema
 ![alt text](https://github.com/phidesigner/DE_nanodegree/blob/master/Project%201/Pics/ERD.png)
+
+## Data sources and files
+For the purpose of this exercise this repo only contains information related to the ETL and Postgres processes. Namely:
+
+- **sql_queries.py:** defines the schema of the five tables and the corresponding SQL queries
+- **create_tables.py:** triggers the creation of the Database and the five afore mentioned tables
+- **elt.py:** runs the comeplete ETL pipeline
+- **etl.ipynb:** given instructions notebook to develop the ETL pipeline
+- **test.ipynb:** given notebook to test the sql queries and ETL outcome
+
+#### Song Dataset
 
 #### Songplays table
 ![alt text](https://github.com/phidesigner/DE_nanodegree/blob/master/Project%201/Pics/songplays.png)
