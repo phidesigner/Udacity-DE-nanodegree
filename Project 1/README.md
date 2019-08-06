@@ -42,10 +42,10 @@ For the purpose of this exercise, the repo only contains information related to 
 - sql_queries
  
 ## Running the jobs
-'''
+```
 $ python create_tables.py
 $ python etl.py
-'''
+```
 
 #### Songplays table
 ![alt text](https://github.com/phidesigner/DE_nanodegree/blob/master/Project%201/Pics/songplays.png)
