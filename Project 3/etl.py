@@ -8,7 +8,7 @@ from pyspark.sql.types import TimestampType
 
 # Accessing AWS credentials (dl.cfg)
 config = configparser.ConfigParser() 
-config.read('dl.cfg')
+config.read(os.path.expanduser("~/.aws/credentials"))
 
 os.environ['AWS_ACCESS_KEY_ID']=config['AWS']['AWS_ACCESS_KEY_ID']
 os.environ['AWS_SECRET_ACCESS_KEY']=config['AWS']['AWS_SECRET_ACCESS_KEY']
