@@ -12,7 +12,7 @@ CREATE TABLE "dim_us_demographics" (
   "count" int NOT NULL
 );
 
-CREATE TABLE "fact_immigration" (
+CREATE TABLE "fact_us_immigration" (
   "cicid" int PRIMARY KEY NOT NULL,
   "arrdate" date,
   "depdate" date,
@@ -46,15 +46,13 @@ CREATE TABLE "dim_countries" (
 );
 
 CREATE TABLE "dim_us_states" (
-  "city_code" varchar PRIMARY KEY,
-  "name" varchar,
-  "state_code" varchar,
-  "state_name" varchar
+  "code" varchar PRIMARY KEY,
+  "name" varchar
 );
 
 CREATE TABLE "dim_arrival_mode" (
   "code" int PRIMARY KEY,
-  "name" varchar NOT NULL
+  "mode" varchar NOT NULL
 );
 
 CREATE TABLE "dim_visa" (
@@ -62,14 +60,22 @@ CREATE TABLE "dim_visa" (
   "type" varchar NOT NULL
 );
 
-ALTER TABLE "fact_immigration" ADD FOREIGN KEY ("i94addr") REFERENCES "dim_us_demographics" ("state_code");
+CREATE TABLE "dim_orig_port" (
+  "port_code" varchar PRIMARY KEY,
+  "name" varchar,
+  "st_or_ctry" varchar
+);
 
-ALTER TABLE "dim_us_states" ADD FOREIGN KEY ("state_code") REFERENCES "dim_us_demographics" ("state_code");
+ALTER TABLE "fact_us_immigration" ADD FOREIGN KEY ("i94addr") REFERENCES "dim_us_demographics" ("state_code");
 
-ALTER TABLE "fact_immigration" ADD FOREIGN KEY ("i94cit") REFERENCES "dim_countries" ("code");
+ALTER TABLE "dim_us_states" ADD FOREIGN KEY ("code") REFERENCES "dim_us_demographics" ("state_code");
 
-ALTER TABLE "fact_immigration" ADD FOREIGN KEY ("i94port") REFERENCES "dim_us_states" ("city_code");
+ALTER TABLE "fact_us_immigration" ADD FOREIGN KEY ("i94cit") REFERENCES "dim_countries" ("code");
 
-ALTER TABLE "fact_immigration" ADD FOREIGN KEY ("i94mode") REFERENCES "dim_arrival_mode" ("code");
+ALTER TABLE "fact_us_immigration" ADD FOREIGN KEY ("i94addr") REFERENCES "dim_us_states" ("code");
 
-ALTER TABLE "fact_immigration" ADD FOREIGN KEY ("visatype") REFERENCES "dim_visa" ("code");
+ALTER TABLE "fact_us_immigration" ADD FOREIGN KEY ("i94mode") REFERENCES "dim_arrival_mode" ("code");
+
+ALTER TABLE "fact_us_immigration" ADD FOREIGN KEY ("visatype") REFERENCES "dim_visa" ("code");
+
+ALTER TABLE "fact_us_immigration" ADD FOREIGN KEY ("i94port") REFERENCES "dim_orig_port" ("port_code");
