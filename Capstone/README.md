@@ -1,4 +1,3 @@
-
 # Udacity Data Engineering NanoDegree
 ### Data Engineering Capstone Project
 
@@ -24,7 +23,7 @@ The main dataset is coming from the US National Tourism and Trade Office reposit
 
 #### General Architecture/ Tech Stack
 
-![](architecture.png)
+![](images/architecture.png)
 
 ------------
 
@@ -1711,7 +1710,7 @@ The fact table is defined as the US Immigration dataset and five Dimension table
 
 The chart below displays this structure:
 
-![a](Udacity_Nano.png)
+![a](images/Udacity_Nano.png)
 
 --------
 
@@ -2417,7 +2416,7 @@ The data pipeline is consists of two main phases or stages. **The first ETL**, c
 
 **The second ETL** is automated or planned to be scheduled at will, by orchestrating the creation of the Data Warehouse and migration of the data from the S3 bucket to an **AWS Redshift** via **Airflow DAG jobs**
 
-![b](DAG.png)
+![b](images/DAG.png)
 
 Details of the jobs and the general orchestration can be found in the airflow folder. However, the main components are:
 
@@ -2441,7 +2440,7 @@ Run Quality Checks
 
 Airflow provides us with dynamic **Logging** features, allowing for an interactive control of the different stages, as well as a graphical interface
 
-![c](air_check.png)
+![c](images/air_check.png)
 
 Furthermore, a data quality stage is added at the end to check for completion and correct reading of the tables
 
@@ -2483,7 +2482,7 @@ class DataQualityOperator(BaseOperator):
 
 Finally a regular visual inspection was run over the actual tables created on the *AWS Redshift DWH*, via the **Query editor**
 
-![d](redshift.png)
+![d](images/query_editor.png)
 
 --------
 
@@ -2578,7 +2577,7 @@ Create a data dictionary for your data model. For each field, provide a brief de
 #### Step 5: Complete Project Write Up
 ##### - Clearly state the rationale for the choice of tools and technologies for the project.
 
-![](jupyter.png)
+![](images/jupyter.png)
 
 Jupyter is an extremely flexible yet robust environment, that helped me iterate and interact in a highly dynamic way while exploring and cleaning the data. Furthermore, it served as a great way to prototype jobs both in Python and Pyspark frameworks. Futher benefits include:
 
@@ -2588,7 +2587,7 @@ Jupyter is an extremely flexible yet robust environment, that helped me iterate 
 - Integration with AWS EMR clusters
 - Easy sharing
 
-![](spark.png)
+![](images/spark.png)
 
 The Spark computing engine was preferred as it allowed me to develop code that would scale in time and future proof the solution for future data intensive demands (distributed computing). In particular, the use of Pyspark as an API, which eased the transition from Python. Other benefits are:
 
@@ -2604,7 +2603,7 @@ The Spark computing engine was preferred as it allowed me to develop code that w
 
 - SQL language friendly
 
-![](parquet.png)
+![](images/parquet.png)
 
 Parquet was used as the compression file format for storage due to its increase in performance over other formats, namely:
 
@@ -2614,11 +2613,11 @@ Parquet was used as the compression file format for storage due to its increase 
 
 Source: [Acadgild](https://acadgild.com/blog/parquet-file-format-hadoop)
 
-![](s3.png)
+![](images/s3.png)
 
 Easy, cheap, simple and reliable. S3 buckets are one of the easiest abstractions in terms of data storage, with great scalability, security and storage versatility
 
-![](airflow.png)
+![](images/airflow.png)
 
 Airflow allowed me to orchestrate the pipeline in a relatively easy manner, while providing a robust dashboard and logging interface for monitoring and controlling the entire process. While also providing the ability to grow in complexity and size. Other key benefits are:
  
@@ -2628,7 +2627,7 @@ Airflow allowed me to orchestrate the pipeline in a relatively easy manner, whil
 - Python based
 
 
-![](emr.png)
+![](images/emr.png)
 
 EMR really helped simplifying and abstracting the complex task of set up an scalable cluster. In a relatively affordable way, it allowed me to take advantage of Spark distributed nature to process jobs from the easiness of a Jupyter notebook. Other benefits are:
 
@@ -2637,7 +2636,7 @@ EMR really helped simplifying and abstracting the complex task of set up an scal
 - Reliability
 - Control
 
-![](red.png)
+![](images/red.png)
 
 Creating an entire high performing Data WareHouse on one click, or programmatically if desired, is a really revolutionary invention! It allowed me to create a platform from which future Data Scientists could access the data in a familiar SQL manner at a highly affordable price tag. Other benefits include:
 
